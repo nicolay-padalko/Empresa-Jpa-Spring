@@ -1,11 +1,16 @@
 package br.com.nicolay.empresa.boot.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "DEPARTAMENTOS")
 public class Departamento extends AbstractEntity<Long>{
@@ -14,21 +19,7 @@ public class Departamento extends AbstractEntity<Long>{
     private String nome;
 
     @OneToMany(mappedBy = "departamento")
-    private List<Cargo> cargos;
+    private List<Cargo> cargos;  //muitos cargos tem um departamento
 
-    public String getNome() {
-        return nome;
-    }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public List<Cargo> getCargos() {
-        return cargos;
-    }
-
-    public void setCargos(List<Cargo> cargos) {
-        this.cargos = cargos;
-    }
 }

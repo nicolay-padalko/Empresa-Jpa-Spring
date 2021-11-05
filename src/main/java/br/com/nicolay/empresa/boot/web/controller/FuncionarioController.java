@@ -18,7 +18,7 @@ public class FuncionarioController {
 
     @RequestMapping(method = RequestMethod.GET, value = "/cadastrar")
     public String cadastrar(Funcionario funcionario) {
-        return "funcionario/cadatro.html";
+        return "funcionario/cadastro.html";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/listar")
@@ -30,18 +30,18 @@ public class FuncionarioController {
     @RequestMapping(method = RequestMethod.POST, value = "/salvar")
     public String salvar(Funcionario funcionario) {
         service.salvar(funcionario);
-        return "redirect:/funcioanrios/cadastrar";
+        return "redirect:/funcioanrio/cadastro";
     }
 
     @RequestMapping(value = "/editar/{id}", method =RequestMethod.GET)
     public String preEditar(@PathVariable("id") Long id, ModelMap model) {
         model.addAttribute("funcionario", service.buscarPorId(id));
-        return "redirect:/funcionarios/cadastrar";
+        return "redirect:/funcionario/cadastro";
     }
 
     @RequestMapping(value = "/editar", method = RequestMethod.POST)
     public String editar(Funcionario funcionario) {
         service.editar(funcionario);
-        return "redirect:/funcionario/cadastrar";
+        return "redirect:/funcionario/cadastro";
     }
 }
