@@ -30,7 +30,7 @@ public class DepartamentoController {
     @RequestMapping(method = RequestMethod.POST, value = "/salvar")
     public String salvar(Departamento departamento) {
         service.salvar(departamento);
-        return "redirect:/departamento/cadastrar";
+        return "redirect:/departamentos/cadastrar";
     }
 
 
@@ -44,7 +44,7 @@ public class DepartamentoController {
     @RequestMapping(value = "/editar", method = RequestMethod.POST)
     public String editar(Departamento departamento) {
         service.editar(departamento);
-        return "redirect:/departamento/cadastrar";
+        return "redirect:/departamentos/cadastrar";
     }
 
     public  String excluir(@PathVariable("id") Long id, ModelMap model) {
